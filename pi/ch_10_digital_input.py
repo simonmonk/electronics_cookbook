@@ -5,7 +5,7 @@ GPIO.setmode(GPIO.BCM)
 
 input_pin = 23
 
-GPIO.setup(led_pin, GPIO.INPUT)
+GPIO.setup(input_pin, GPIO.IN)
 
 try:         
     while True:
