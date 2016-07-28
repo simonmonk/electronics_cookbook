@@ -9,7 +9,7 @@ GPIO.setup(led_pin, GPIO.OUT)
 
 try:         
     while True:
-        answer = input("1 for on 0 for off")
+        answer = input("1 for on 0 for off: ")
         if answer == 1:
             GPIO.output(led_pin, True)  # LED on
         elif answer == 0:
