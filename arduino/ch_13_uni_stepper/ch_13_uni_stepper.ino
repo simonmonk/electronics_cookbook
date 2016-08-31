@@ -1,9 +1,9 @@
 #include <Stepper.h>
 
-const int in1Pin = 9;
-const int in2Pin = 11;
-const int in3Pin = 8;
-const int in4Pin = 10;
+const int in1Pin = 2;
+const int in2Pin = 3;
+const int in3Pin = 4;
+const int in4Pin = 7;
 
 Stepper motor(513, in1Pin, in2Pin, in3Pin, in4Pin);  
 
