@@ -1,33 +1,44 @@
 import RPi.GPIO as GPIO
+import thread, time
 
+GPIO.setmode(GPIO.BCM)
 pins = [18, 23, 24]
 
 pin_led_states = [
-  [1, 0, -1], # A
-  [0, 1, -1], # B
-  [-1, 1, 0], # C
-  [-1, 0, 1], # D
-  [1, -1, 0], # E
-  [0, -1, 1]  # F
+  [1, 0, -1], # LED1
+  [0, 1, -1], # LED2
+  [-1, 1, 0], # LED3
+  [-1, 0, 1], # LED4
+  [1, -1, 0], # LED5
+  [0, -1, 1]  # LED6
 ]
 
-GPIO.setmode(GPIO.BCM)
+led_states = [0, 0, 0, 0, 0, 0]
 
-def set_pin(pin_index, pin_state):
-    if pin_state == -1:
-        GPIO.setup(pins[pin_index], GPIO.IN)
-    else:
-        GPIO.setup(pins[pin_index], GPIO.OUT)
-        GPIO.output(pins[pin_index], pin_state)
+def set_pins(led):
+  for pin in range(0, 3):
+      if pin_led_states[led][pin] == -1:
+          GPIO.setup(pins[pin], GPIO.IN)
+      else:
+          GPIO.setup(pins[pin], GPIO.OUT)
+          GPIO.output(pins[pin], pin_led_states[led][pin])
 
-def light_led(led_number):
-    for pin_index, pin_state in enumerate(pin_led_states[led_number]):
-        set_pin(pin_index, pin_state)
+def clear_pins():
+  for pin in range(0, 3):
+      GPIO.setup(pins[pin], GPIO.IN)
 
-set_pin(0, -1)
-set_pin(1, -1)
-set_pin(2, -1)
+def refresh():
+  while(True):
+   for led in range(0, 6):
+     clear_pins()
+     if led_states[led]:
+       set_pins(led)
+     else:
+       clear_pins()
+     time.sleep(0.001)
+
+thread.start_new_thread(refresh, ())
 		
 while True:
-    x = int(raw_input("Pin (0 to 5):"))
-    light_led(x)
+    x = int(raw_input("Pin (0 to 5) :"))
+    led_states[x] = not led_states[x]
