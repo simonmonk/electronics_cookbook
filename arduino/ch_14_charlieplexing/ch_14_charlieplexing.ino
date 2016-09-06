@@ -28,8 +28,6 @@ void loop()
   refresh();
 }
 
-
-
 void refresh()
 {
   for (int led = 0; led < 6; led ++)
