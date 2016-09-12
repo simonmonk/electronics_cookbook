@@ -1,20 +1,12 @@
-#!/usr/bin/env python
-
-from oled.device import ssd1306   # 1
+from demo_opts import device
 from oled.render import canvas
-from PIL import ImageFont    # 2
-import time
+from PIL import ImageFont
+from demo_opts import args
 
-device = ssd1306(port=1, address=0x3C)  # 3
-large_font = ImageFont.truetype('FreeMono.ttf', 24)  # 4
+font = ImageFont.load_default()
 
-x = 0
-while True:
-    with canvas(device) as draw:      # 5
-        draw.pieslice((x, 30, x+30, 60), 45, -45, fill=255)   # 6
-        x += 10    # 7
-        if x > 128:
-            x = 0
-        now = time.localtime()  # 8
-        draw.text((0, 0), time.strftime('%H:%M:%S', now), font=large_font, fill=255)
-    time.sleep(0.1)
+
+with canvas(device) as draw:
+    draw.rectangle((0, 0, device.width-1, device.height-1), outline=255, fill=0)
+    font = ImageFont.load_default()
+    draw.text((5, 20), 'Electronics Cookbook',  font=font, fill=255)
