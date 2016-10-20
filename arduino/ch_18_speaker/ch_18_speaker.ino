@@ -11,7 +11,7 @@ void loop()
 {
   if (Serial.available())
   {
-    long f = Serial.parseInt();
+    int f = Serial.parseInt();
     if (f == 0) {
       noTone(outputPin);
     }
