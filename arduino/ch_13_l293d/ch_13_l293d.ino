@@ -1,6 +1,3 @@
-
-// TRY THIS
-
 const int motor1SpeedPin = 5;
 const int motor2SpeedPin = 6;
 
