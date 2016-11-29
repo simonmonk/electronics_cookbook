@@ -12,7 +12,6 @@ void setup() {
   pinMode(in2Pin, OUTPUT);
   pinMode(in3Pin, OUTPUT);
   pinMode(in4Pin, OUTPUT);
-  while (!Serial);
   Serial.begin(9600);
   Serial.println("Command letter followed by number");
   Serial.println("p20 - set the motor speed to 20");

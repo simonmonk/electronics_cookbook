@@ -28,7 +28,7 @@ def clear_pins():
       GPIO.setup(pins[pin], GPIO.IN)
 
 def refresh():
-  while(True):
+  while True:
    for led in range(0, 6):
      clear_pins()
      if led_states[led]:

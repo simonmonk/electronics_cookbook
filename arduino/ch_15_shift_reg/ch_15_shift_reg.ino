@@ -7,7 +7,7 @@ void setup() {
   pinMode(dataPin, OUTPUT);
   pinMode(clockPin, OUTPUT);
   Serial.begin(9600);
-  Serial.println("Enter Byte (in decimal)");
+  Serial.println("Enter Byte");
 }
 
 void loop() {

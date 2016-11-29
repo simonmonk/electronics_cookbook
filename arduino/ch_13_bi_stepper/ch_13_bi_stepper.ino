@@ -24,7 +24,7 @@ void setup() {
 }
 
 void loop() {   
-    if (Serial.available()) {
+  if (Serial.available()) {
     char command = Serial.read();
     int param = Serial.parseInt();
     if (command == 'p') {

@@ -10,8 +10,8 @@ GPIO.setup(input_A, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(input_B, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
-old_a = True
-old_b = True
+old_a = 1
+old_b = 1
 
 def get_encoder_turn():
     # return -1, 0, or +1

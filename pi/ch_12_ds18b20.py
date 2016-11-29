@@ -22,5 +22,5 @@ def read_temp():
         return temp_c
 	
 while True:
-	print(read_temp())	
-	time.sleep(1)
+    print(read_temp())	
+    time.sleep(1)

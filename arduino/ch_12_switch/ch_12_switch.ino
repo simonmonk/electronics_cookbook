@@ -8,10 +8,10 @@ void setup()
 
 void loop()
 {
-  if (digitalRead(inputPin) == false)
+  if (digitalRead(inputPin) == LOW)
   {
     Serial.println("Button Pressed!");
-    while (digitalRead(inputPin) == false) {};
+    while (digitalRead(inputPin) == LOW) {};
     delay(10);
   }
 }

@@ -12,7 +12,6 @@ try:
         if GPIO.input(input_pin) == False: 
             print("Button Pressed!")
             while GPIO.input(input_pin) == False: 
-                pass
                 time.sleep(0.01)         
 finally:  
     print("Cleaning up")

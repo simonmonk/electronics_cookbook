@@ -23,19 +23,19 @@ void loop()
 int getEncoderTurn()
 {
   // return -1, 0, or +1
-  static int oldA = LOW;
-  static int oldB = LOW;
+  static int oldA = 0;
+  static int oldB = 0;
   int result = 0;
   int newA = digitalRead(aPin);
   int newB = digitalRead(bPin);
   if (newA != oldA || newB != oldB)
   {
     // something has changed
-    if (oldA == LOW && newA == HIGH)
+    if (oldA == 0 && newA == 1)
     {
       result = (oldB * 2 - 1);
     }
-    else if (oldB == LOW && newB == HIGH)
+    else if (oldB == 0 && newB == 1)
     {
       result = -(oldA * 2 - 1);
     }

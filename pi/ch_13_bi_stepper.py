@@ -54,11 +54,11 @@ try:
     print('f100 - forward 100 steps');
     print('r100 - reverse 100 steps');
     
-    while True:      # (4)
-        command = raw_input('Enter command: ')
+    while True:     
+        command = input('Enter command: ')
         parameter_str = command[1:] # from char 1 to end
-        parameter = int(parameter_str)     # (5)
-        if command[0] == 'p':     # (6)
+        parameter = int(parameter_str)   
+        if command[0] == 'p':   
             period = parameter / 1000.0
         elif command[0] == 'f':
             step_forward(parameter, period)
