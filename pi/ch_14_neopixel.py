@@ -8,7 +8,9 @@ spi.open(0,0)
 
 N = 10
                           # g r b
-pixels = [x[:] for x in [[0, 0, 0]] * N]
+pixels = []
+for x in range(0, 10):
+    pixels.append([0, 0, 0])
 
 while True:
   for i in range(0, N):
